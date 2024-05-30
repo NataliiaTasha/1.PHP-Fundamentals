@@ -64,16 +64,63 @@ if( $now_number >= "0500" AND $now <= "0900"){
 
 // 3. "Different greetings according to age" Exercise
 
-if (isset($_GET['age'])){
+if (isset($_GET['age']) and isset($_GET['gender'])){
 	// Form processing
 	$age = $_GET['age'];
+	$gender = $_GET['gender'];
+	$english = $_GET['english'];
 
 	if ($age < 12) {
-		echo "<p>Hello kiddo!</p>";
+		// echo "<p>Hello kiddo!</p>";
+		if ($gender == 'female') {
+			//echo "<p>Hello Miss Kiddo!</p>";
+			if ($english == 'yes') {
+				echo "<p>Hello Girl!</p>";
+			} else {
+				echo "<p>Aloha Girl!</p>";
+			}
+		} else {
+			//echo "<p>Hello Mr Kiddo!</p>";
+			if ($english == 'yes') {
+				echo "<p>Hello Boy!</p>";
+			} else {
+				echo "<p>Aloha Boy!</p>";
+			}
+		}
 	} else if ($age >= 12 AND $age <= 18) {
-		echo "<p>Hello Teenager!</p>";
+		if ($gender == 'female') {
+			//echo "<p>Hello Miss Teen!</p>";
+			if ($english == 'yes') {
+				echo "<p>Hello Miss Teen!</p>";
+			} else {
+				echo "<p>Aloha Miss Teen!</p>";
+			}
+		} else {
+			//echo "<p>Hello Mr Teen!</p>";
+			if ($english == 'yes') {
+				echo "<p>Hello Mr Teen!</p>";
+			} else {
+				echo "<p>Aloha Mr Teen!</p>";
+			}
+		}
+		//echo "<p>Hello Teenager!</p>";
 	} else if ($age >= 18 AND $age <= 115) {
-		echo "<p>Hello Adult!</p>";
+		//echo "<p>Hello Adult!</p>";
+		if ($gender == 'female') {
+			//echo "<p>Hello Miss Adult!</p>";
+			if ($english == 'yes') {
+				echo "<p>Hello Madam!</p>";
+			} else {
+				echo "<p>Aloha Madam!</p>";
+			}
+		} else {
+			//echo "<p>Hello Mr Adult!</p>";
+			if ($english == 'yes') {
+				echo "<p>Hello Mister!</p>";
+			} else {
+				echo "<p>Aloha Mister!</p>";
+			}
+		}
 	} else {
 		echo "<p>Wow! Still alive ? Are you a robot, like me ? Can I hug you?</p>";
 	}
@@ -84,5 +131,19 @@ if (isset($_GET['age'])){
 	<label for="age">Please type your age:</label>
 	<input type="number" name="age" min = "0">
 	<input type="submit" name="submit" value="Greet me now">
-</form>
+
+	<legend>Please select your gender:</legend>
+	<input type="radio" id = "userGender" name="gender" value = "female" >
+	<label for="gender">Female</label><br>
+	<input type="radio" id = "userGender" name="gender" value = "male" >
+	<label for="gender">Male</label>
+
+	<legend>Do you speak English?</legend>
+	<input type="radio" name="english" value = "yes">
+	<label for="english">Yes</label>
+	<input type="radio" name="english" value = "no">
+	<label for="english">No</label>
+	<br>
+
+</form>	
 
