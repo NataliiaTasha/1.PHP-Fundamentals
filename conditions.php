@@ -1,4 +1,5 @@
 
+
 <?php
 // 1.1 Clean your room Exercise 
 
@@ -46,8 +47,8 @@ if( $room_filthiness == "dusty"){
 // 2. "Different greetings according to time" Exercise
 
 $now = date("H:i"); // How to get the current time in PHP ? Google is your friend ;-)
-//echo $now;
-$now_number = str_replace(":", "", $now);
+echo $now;
+$now_number = str_replace(":", "", $now);//to compare strins as numbers
 // Test the value of $now and display the right message according to the specifications.
 if( $now_number >= "0500" AND $now <= "0900"){
     echo "<br>Good morning!";
@@ -60,4 +61,28 @@ if( $now_number >= "0500" AND $now <= "0900"){
 } else {
 	echo "<br>Good night!";
 }
+
+// 3. "Different greetings according to age" Exercise
+
+if (isset($_GET['age'])){
+	// Form processing
+	$age = $_GET['age'];
+
+	if ($age < 12) {
+		echo "<p>Hello kiddo!</p>";
+	} else if ($age >= 12 AND $age <= 18) {
+		echo "<p>Hello Teenager!</p>";
+	} else if ($age >= 18 AND $age <= 115) {
+		echo "<p>Hello Adult!</p>";
+	} else {
+		echo "<p>Wow! Still alive ? Are you a robot, like me ? Can I hug you?</p>";
+	}
+}
 ?>
+
+<form method="get" action="">
+	<label for="age">Please type your age:</label>
+	<input type="number" name="age" min = "0">
+	<input type="submit" name="submit" value="Greet me now">
+</form>
+
